@@ -1532,7 +1532,7 @@ static void usr2_handler( int signal, siginfo_t *siginfo, void *_sigcontext )
             memcpy( fp->vregs, frame->v, sizeof(fp->vregs) );
         }
 
-        if (sve)
+        if (sve && sve->vl)
         {
             /* setup FEX SVE state */
             ULONG64 vq = sve_vq_from_vl(sve->vl);
